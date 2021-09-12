@@ -1,0 +1,17 @@
+syntax ="proto3"; //proto3版本
+
+option go_package = "sjw.myrpc1";
+
+package myrpc;
+
+message HelloRequest {
+    string message = 1;
+}
+
+message HelloReply {
+    string reply =1; 
+}
+
+service  GreetService{
+    rpc Hello(HelloRequest) returns (HelloReply);
+}
