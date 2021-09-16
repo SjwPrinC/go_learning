@@ -1,0 +1,17 @@
+
+syntax="proto3";
+
+option go_package = "./prodService";
+
+message  HelloReq{
+    string name = 1;
+}
+
+message HelloRly{
+    string greet = 1;
+}
+
+
+service ProductService{
+    rpc SayHello(HelloReq) returns (HelloRly){}
+}
