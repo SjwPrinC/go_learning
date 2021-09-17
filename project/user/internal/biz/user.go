@@ -2,7 +2,7 @@ package biz
 
 import "context"
 
-type UserService struct {
+type UserBiz struct {
 	ur UserRepo
 }
 
@@ -12,14 +12,14 @@ type UserRepo interface {
 	ChangeUserName(ctx context.Context) error
 }
 
-func (us *UserService) Register() {
-	us.ur.Register(context.Background())
+func (ub *UserBiz) Register() {
+	ub.ur.Register(context.Background())
 }
 
-func (us *UserService) ChangeUserName() {
-	us.ur.Register(context.Background())
+func (ub *UserBiz) ChangeUserName() {
+	ub.ur.ChangeUserName(context.Background())
 }
 
-func NewUserService() {
+func NewUserBiz() {
 
 }
