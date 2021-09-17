@@ -87,7 +87,7 @@ func main() {
 	defer cleanup()
 
 	// client, err := api.NewClient(api.DefaultConfig())
-	client, err := api.NewClient(&api.Config{Address: "127.0.0.1:8500", Datacenter: "dc1"})
+	client, err := api.NewClient(&api.Config{Address: "z", Datacenter: "dc1"})
 
 	serviceId := uuid.NewString()
 	client.Agent().ServiceRegister(&api.AgentServiceRegistration{

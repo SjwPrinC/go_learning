@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package newapi.v1;
+
+option go_package="newapi/v1;v1";
+
+message RegisterRequest{
+     string mobile =1;
+     string password = 2;
+       string name = 3;
+}
+
+message CommonReply{
+    string msg = 1;
+    bool success = 2;
+}
+
+message ChangeUserNameRequest{
+    string uid = 1;
+    string newName = 2;
+}
+
+
+service User{
+    rpc Register(RegisterRequest)returns(CommonReply){}
+
+    rpc ChangeUserName(ChangeUserNameRequest) returns (CommonReply){}
+}
