@@ -4,7 +4,7 @@ package user.v1;
 
 import "google/api/annotations.proto";
 
-option go_package = "github.com/sjw/user/api/user/v1;v1";
+option go_package = "github.com/sjw/user/api/v1;v1";
 
 // The greeting service definition.
 service User {
