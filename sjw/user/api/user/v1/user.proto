@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+package user.v1;
+
+import "google/api/annotations.proto";
+
+option go_package = "github.com/sjw/user/api/user/v1;v1";
+
+// The greeting service definition.
+service User {
+  // Sends a greeting
+  rpc Register (RegisterReq) returns (RegisterReply)  {
+	  option (google.api.http) = {
+            get: "/user/login"
+        };
+    }
+
+  rpc Login (LoginReq) returns (LoginReply){
+
+  }
+}
+
+// The request message containing the user's name.
+message RegisterReq {
+  string name = 1;
+  string mobile = 2;
+    string password = 3;
+}
+
+// The response message containing the greetings
+message RegisterReply {
+  string message = 1;
+}
+
+message LoginReq {
+  string mobile = 1;
+  string password = 2;
+}
+
+// The response message containing the greetings
+message LoginReply {
+  string message = 1;
+}
