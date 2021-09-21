@@ -1,25 +1,41 @@
 package biz
 
-import "context"
+import (
+	"context"
 
-type UserBiz struct {
+	do "github.com/sjw/user/do"
+	"github.com/sjw/user/model"
+)
+
+type UserUseCase struct {
 	ur UserRepo
 }
 
 type UserRepo interface {
-	Register(ctx context.Context) error
+	Register(ctx context.Context, user *model.User) error
 
-	ChangeUserName(ctx context.Context) error
+	ChangeUserName(ctx context.Context, userName string, newName string) error
 }
 
-func (ub *UserBiz) Register() {
-	ub.ur.Register(context.Background())
+func (ub *UserUseCase) Register(do *do.RegisterDo) error {
+	ub.ur.Register(context.Background(),
+		&model.User{
+			User_Name: do.UserName,
+			Mobile:    do.Mobile,
+			Password:  do.Password,
+		})
+	return nil
 }
 
-func (ub *UserBiz) ChangeUserName() {
-	ub.ur.ChangeUserName(context.Background())
+func (ub *UserUseCase) ChangeUserName(do *do.ChangeUserNameDo) error {
+
+	ub.ur.ChangeUserName(context.Background(), do.UserName, do.NewName)
+
+	return nil
 }
 
-func NewUserBiz() {
-
+func NewUserUseCase(ur UserRepo) *UserUseCase {
+	return &UserUseCase{
+		ur: ur,
+	}
 }
