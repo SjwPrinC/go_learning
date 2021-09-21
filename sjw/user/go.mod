@@ -9,6 +9,7 @@ require (
 	github.com/go-kratos/kratos/cmd/protoc-gen-go-errors/v2 v2.0.0-20210920023326-3cbe4755ed45 // indirect
 	github.com/go-kratos/kratos/cmd/protoc-gen-go-http/v2 v2.0.0-20210920023326-3cbe4755ed45 // indirect
 	github.com/go-kratos/kratos/v2 v2.0.5
+	github.com/go-sql-driver/mysql v1.6.0 // indirect
 	github.com/google/wire v0.5.0
 	github.com/iancoleman/strcase v0.2.0 // indirect
 	github.com/kr/text v0.2.0 // indirect
